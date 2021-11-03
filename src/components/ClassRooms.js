@@ -17,7 +17,7 @@ export default function ClassRooms() {
   const [classRooms, setClassRooms] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3003")
+    fetch("https://classroom-server-web.herokuapp.com/")
       .then(res => res.json())
       .then(data => {
           console.log(data);

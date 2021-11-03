@@ -30,15 +30,7 @@ export default function NewClassForm() {
       }),
     };
 
-    fetch("http://localhost:3003/test/", {
-      method: "POST",
-      headers: {
-        "Contect-Type": "application/json",
-      },
-      body: JSON.stringify({
-        className: className,
-      }),
-    })
+    fetch("https://classroom-server-web.herokuapp.com/", requestOptions)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
