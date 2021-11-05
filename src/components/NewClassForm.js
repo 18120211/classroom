@@ -6,49 +6,7 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
 
-export default function NewClassForm() {
-  const [open, setOpen] = React.useState(false);
-  const [className, setClassName] = React.useState("");
-
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-
-  const handleCreate = async () => {
-    console.log(className, 'classname');
-    const requestOptions = {
-      method: "POST",
-      headers: {
-        "Contect-Type": "application/json",
-      },
-      body: JSON.stringify({
-        className: className,
-      }),
-    };
-
-    fetch("https://classroom-server-web.herokuapp.com/", requestOptions)
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-      });
-    
-    // fetch("http://localhost:3003")
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     console.log(data);
-    //   });
-    setOpen(false);
-  };
-
-  const onChangeClassName = (e) => {
-    // console.log(e.target.value);
-    setClassName(e.target.value);
-  };
-
+export default function NewClassForm({open, handleClickOpen, handleClose, handleCreate, onChangeClassName}) {
   return (
     <div>
       <Button variant="outlined" onClick={handleClickOpen}>
